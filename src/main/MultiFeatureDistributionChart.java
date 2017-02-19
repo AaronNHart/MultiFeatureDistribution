@@ -47,7 +47,7 @@ public class MultiFeatureDistributionChart {
         for (int j=0;j<maxDepth.get();j++){
 
           double yMin = radiusPrevious;
-          double yMax = j;//Math.sqrt((aShell+dSeg*Math.PI*radiusPrevious*radiusPrevious)/dSeg*Math.PI);
+          double yMax = Math.sqrt(j)*nSeg/Math.sqrt(nSeg);//Math.sqrt((aShell+dSeg*Math.PI*radiusPrevious*radiusPrevious)/dSeg*Math.PI);
           XYSeries s = new XYSeries(i*maxDepth.get()+j);
           s.add(xMin, yMin);
           s.add(xMin, yMax);
@@ -67,7 +67,7 @@ public class MultiFeatureDistributionChart {
       for (int i=0;i<data.getSeriesCount();i++){
         Paint seriesPaint = calculateSeriesPaint(i, dataMap, maxDepth.get(), zMax.get().floatValue());
         renderer.setSeriesPaint(i,  seriesPaint);
-        renderer.setSeriesOutlinePaint(i, new Color(0,0,0,0));
+        renderer.setSeriesOutlinePaint(i, new Color(1,1,1,1));
         renderer.setSeriesFilled(i, true);
         renderer.setSeriesShape(i, new Rectangle(0,0));
       }
