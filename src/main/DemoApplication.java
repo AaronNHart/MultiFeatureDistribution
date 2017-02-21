@@ -19,13 +19,13 @@ public class DemoApplication {
 
   public DemoApplication(){
     Map<Integer, ArrayList<Double>> dataMap = createData();
-    JFreeChart chart = MultiFeatureDistributionChart.createChart(dataMap);
+    JFreeChart chart = RadialHistogram.createChart(dataMap);
     mainPanel = new ChartPanel(chart);
   }
   
   private Map<Integer, ArrayList<Double>> createData() {
     int featureCount = 8;
-    int maxDepth = 20;
+    int maxDepth = 5;
     Map<Integer, ArrayList<Double>> data = new HashMap<>();
     Random rnjesus = new Random();
     for (int i=0;i<featureCount;i++){

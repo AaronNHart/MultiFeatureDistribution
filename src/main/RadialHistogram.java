@@ -15,9 +15,9 @@ import org.jfree.chart.renderer.DefaultPolarItemRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-public class MultiFeatureDistributionChart {
+public class RadialHistogram {
   
-  private MultiFeatureDistributionChart() {  }
+  private RadialHistogram() {  }
   
   public static JFreeChart createChart(Map<Integer, ArrayList<Double>> dataMap) {
     XYSeriesCollection data=new XYSeriesCollection();
@@ -29,13 +29,8 @@ public class MultiFeatureDistributionChart {
       //For each entry create a list of series containing shell coordinates.
       for (Entry<Integer, ArrayList<Double>> e: dataMap.entrySet()){
         e.getValue().size();
-        double nShell = maxDepth.get();
         int i = e.getKey();
-        double nSeg = dataMap.size();
-        double dSeg = 1d/dataMap.size();
-        double aSeg = dSeg*Math.PI*(nShell*nShell);
-        double aShell = nSeg/aSeg;
-        
+        double nSeg = dataMap.size();        
         
         //Calculate Series x Values.
         double x = (double)i/nSeg*360;
